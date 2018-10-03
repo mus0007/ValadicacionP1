@@ -56,26 +56,6 @@ namespace LibClases.test
 
             Assert.AreEqual(u.comprobarPass("hola"), true);
 
-            //Prueba cambiarPassEnUso
-
-            Usuario p = new Usuario(7, "perico", "delgado", "Per69", "perico@ubu.es","adios");
-
-            p.UsuarioGrabado = true;
-
-            p.cambiarPassEnUso("adios", "hi");
-
-            Assert.AreEqual(p.comprobarPass("hi"), true);
-
-            //Prueba cambiarPassNoBD
-
-            Usuario q = new Usuario(10, "quenco", "michel", "Keko", "quenco@ubu.es", "madrid");
-
-            p.UsuarioGrabado = false;
-
-            p.cambiarPassNoBD("barcelona");
-
-            Assert.AreEqual(p.comprobarPass("barcelona"), true);
-
         }
 
     }
