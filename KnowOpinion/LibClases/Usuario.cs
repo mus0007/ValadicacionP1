@@ -16,7 +16,6 @@ namespace LibClases
             this.apellido = _apellido;
             this.cuenta = cuenta;
             this.eMail = _eMail;
-
         }
 
         public Usuario(int _idUsuario, string _nombre, string _apellido, string cuenta, string _eMail, string _contrasena)
