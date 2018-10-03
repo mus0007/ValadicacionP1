@@ -16,6 +16,7 @@ namespace LibClases
             this.apellido = _apellido;
             this.cuenta = cuenta;
             this.eMail = _eMail;
+            this.contrasena = "";
         }
 
         public Usuario(int _idUsuario, string _nombre, string _apellido, string cuenta, string _eMail, string _contrasena)
@@ -97,6 +98,15 @@ namespace LibClases
             if (usuarioGrabado && this.contrasena == passOld)
             {
                 asignarPass(passNew);
+                return true;
+            }
+            return false;
+        }
+
+        public bool comprobarPass(string pass)
+        {
+            if(contrasena == pass)
+            {
                 return true;
             }
             return false;
