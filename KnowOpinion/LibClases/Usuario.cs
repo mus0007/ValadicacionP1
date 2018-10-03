@@ -70,6 +70,37 @@ namespace LibClases
             set { this.eMail = value; }
         }
 
+        private bool usuarioGrabado;
+        public bool UsuarioGrabado
+        {
+            get { return this.usuarioGrabado; }
+            set { this.usuarioGrabado = value; }
+        }
+
+        public void asignarPass(string pass)
+        {
+            this.contrasena = pass;
+        }
+
+        public bool cambiarPassNoBD(string pass)
+        {
+            if (!usuarioGrabado)
+            {
+                asignarPass(pass);
+                return true;
+            }
+            return false;
+        }
+
+        public bool cambiarPassEnUso(string passOld, string passNew)
+        {
+            if (usuarioGrabado && this.contrasena == passOld)
+            {
+                asignarPass(passNew);
+                return true;
+            }
+            return false;
+        }
     }
 }
 
