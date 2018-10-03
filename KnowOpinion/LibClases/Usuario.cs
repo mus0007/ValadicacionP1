@@ -9,8 +9,6 @@ namespace LibClases
     public class Usuario
     {
 
-        private string pass;
-
         public Usuario(int _idUsuario, string _nombre, string _apellido, string cuenta, string _eMail)
         {
             this.idUsuario = _idUsuario;
