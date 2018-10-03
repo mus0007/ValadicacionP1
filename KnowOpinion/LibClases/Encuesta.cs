@@ -14,23 +14,28 @@ namespace LibClases
             get { return id; }
             set { this.id = value; }
         }
+
+        private string nombre;
+        public string Nombre
+        {
+            get { return nombre; }
+            set { this.nombre = value; }
+        }
+
         private string descripcion;
         public string Descripcion
         {
             get { return descripcion; }
             set { this.descripcion = value; }
         }
-        private int valoracion;
-        public int Valoracion
+
+        private bool activa;
+        public bool Activa
         {
-            get { return valoracion; }
-            set
-            {
-                if (value >= 1 && value <=4)
-                {
-                    this.valoracion = value;
-                }
-            }
+            get { return activa; }
+            set { this.activa = value; }
         }
+
+        public List<Valoracion> opiniones = new List<Valoracion> ();
     }
 }
