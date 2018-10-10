@@ -52,6 +52,7 @@
     <Compile Include="TestEncuesta.cs" />
     <Compile Include="TestUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestValoracion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

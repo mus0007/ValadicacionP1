@@ -12,43 +12,29 @@ namespace LibClases.test
         {
             //Prueba Get Correcto
 
-            Usuario u = new Usuario(1,"mario","ubierna","cuenta","mario@alu.ubu.es");
+            Usuario u = new Usuario(1, "cuenta","pass");
 
             Assert.AreEqual(u.IdUsuario, 1);
 
-            Assert.AreEqual(u.Nombre, "mario");
-
-            Assert.AreEqual(u.Apellido, "ubierna");
-
             Assert.AreEqual(u.Cuenta, "cuenta");
 
-            Assert.AreEqual(u.EMail, "mario@alu.ubu.es");
+            Assert.AreEqual(u.Contrasena, "pass");
 
             //Prueba Get incorrecto
 
-            Usuario x = new Usuario(3, "pepe", "suarez", "acc", "pepe@alu.ubu.es");
+            Usuario x = new Usuario(3, "acc", "hola");
 
             Assert.AreNotEqual(x.IdUsuario, 1);
 
-            Assert.AreNotEqual(x.Nombre, "mario");
-
-            Assert.AreNotEqual(x.Apellido, "ubierna");
-
             Assert.AreNotEqual(x.Cuenta, "cuenta");
 
-            Assert.AreNotEqual(x.EMail, "mario@alu.ubu.es");
+            Assert.AreNotEqual(x.Contrasena, "adios");
 
             //Prueba Set Correcto
 
             Assert.AreEqual(u.IdUsuario = 2, 2);
-            
-            Assert.AreEqual(u.Nombre = "jorge", "jorge");
-
-            Assert.AreEqual(u.Apellido = "navarro", "navarro");
 
             Assert.AreEqual(u.Cuenta = "cuenta", "cuenta");
-
-            Assert.AreEqual(x.EMail = "jorge@alu.ubu.es", "jorge@alu.ubu.es");
 
             //Prueba Asignar Pass
 

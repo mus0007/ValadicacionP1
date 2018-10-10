@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibClases;
 
 namespace LibClases
 {
@@ -36,6 +37,6 @@ namespace LibClases
             set { this.activa = value; }
         }
 
-        public List<Valoracion> opiniones = new List<Valoracion> ();
+        private List<Valoracion> opiniones = new List<Valoracion> ();
     }
 }
