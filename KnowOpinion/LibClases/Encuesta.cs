@@ -9,8 +9,17 @@ namespace LibClases
 {
     public class Encuesta
     {
-        private string id;
-        public string Id
+
+        public Encuesta(int id, string nombre, string descripcion, bool activa = false)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.activa = activa;
+        }
+
+        private int id;
+        public int Id
         {
             get { return id; }
             set { this.id = value; }
@@ -38,5 +47,10 @@ namespace LibClases
         }
 
         private List<Valoracion> opiniones = new List<Valoracion> ();
+
+        public List<Valoracion> getOpiniones()
+        {
+            return opiniones;
+        }
     }
 }
