@@ -67,10 +67,74 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Activar-Desactivar.aspx" />
+    <Content Include="Añadir.aspx" />
+    <Content Include="Borrar.aspx" />
+    <Content Include="InicioSesion.aspx" />
+    <Content Include="Menu.aspx" />
+    <Content Include="Modificar.aspx" />
+    <Content Include="Principal.aspx" />
+    <Content Include="SugerirEncuesta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activar-Desactivar.aspx.cs">
+      <DependentUpon>Activar-Desactivar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Activar-Desactivar.aspx.designer.cs">
+      <DependentUpon>Activar-Desactivar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Añadir.aspx.cs">
+      <DependentUpon>Añadir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Añadir.aspx.designer.cs">
+      <DependentUpon>Añadir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Borrar.aspx.cs">
+      <DependentUpon>Borrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Borrar.aspx.designer.cs">
+      <DependentUpon>Borrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar.aspx.cs">
+      <DependentUpon>Modificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modificar.aspx.designer.cs">
+      <DependentUpon>Modificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SugerirEncuesta.aspx.cs">
+      <DependentUpon>SugerirEncuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SugerirEncuesta.aspx.designer.cs">
+      <DependentUpon>SugerirEncuesta.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -80,6 +144,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibClases\LibClases.csproj">
+      <Project>{82429881-8235-42d4-95d0-2d736e83eda9}</Project>
+      <Name>LibClases</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

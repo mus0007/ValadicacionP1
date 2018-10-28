@@ -53,9 +53,8 @@ namespace LibClases.test
             Assert.AreEqual(db.getEncuesta(2).Nombre, "2");
             Assert.AreEqual(db.borrarEncuesta(1), true);
             Assert.AreEqual(db.getEncuestas().Count, 1);
-            //Prueba a ver si se cambia el id
-            Assert.AreEqual(db.getEncuesta(1).Nombre, "2");
-            Assert.AreEqual(db.borrarEncuesta(1),true);
+            Assert.AreEqual(db.getEncuesta(2).Nombre, "2");
+            Assert.AreEqual(db.borrarEncuesta(2),true);
             Assert.AreEqual(db.getEncuestas().Count, 0);
 
             //Prueba sugerirEncuesta

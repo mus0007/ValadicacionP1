@@ -122,23 +122,10 @@ namespace LibClases
         //Preguntar al profesor si al borrar una encuesta los ids de las demas encuestas a partir de ella deberian bajar una unidad o no
         public bool borrarEncuesta(int id)
         {
-            bool cambioId = false;
             Encuesta prueba = null;
             foreach (Encuesta e in encuestas)
             {
-                if (cambioId.Equals(true))
-                {
-                    --e.Id;
-                }
-                if (e.Id == id && cambioId == false)
-                {
-                    e.Id = -1;
-                    cambioId = true;
-                }
-            }
-            foreach(Encuesta e in encuestas)
-            {
-                if(e.Id == -1)
+                if (e.Id.Equals(id))
                 {
                     prueba = e;
                 }
