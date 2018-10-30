@@ -52,5 +52,25 @@ namespace LibClases
         {
             return opiniones;
         }
+        public void setOpinion(int valor, string opinion )
+        {
+            this.opiniones.Add(new Valoracion(valor, opinion));
+        }
+
+        public override bool Equals(object obj)
+        {
+            Encuesta encuesta = obj as Encuesta;
+            
+            if(this.Id == encuesta.Id)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Id;
+        }
     }
 }

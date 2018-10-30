@@ -23,11 +23,22 @@ namespace LibClases
             Usuario u1 = new Usuario(++nextUser, "Usuario1", "usuario1");
             Usuario u2 = new Usuario(++nextUser, "Usuario2", "usuario2");
             Usuario u3 = new Usuario(++nextUser, "Usuario3", "usuario3");
+            
+            Encuesta e1 = new Encuesta(++nextPoll, "Encuesta"+(this.nextPoll).ToString(), "encuesta0descripcion", true);
+            Encuesta e2 = new Encuesta(++nextPoll, "Encuesta"+(this.nextPoll).ToString(), "encuesta1descripcion", true);
 
             usuarios.Add(u1);
             usuarios.Add(u2);
             usuarios.Add(u3);
 
+            encuestas.Add(e1);
+            encuestas.Add(e2);
+
+        }
+
+        public int setNextPoll()
+        {
+            return ++this.nextPoll;
         }
         
         public List<Encuesta> getActivas()
@@ -76,11 +87,23 @@ namespace LibClases
             sugerencias.Add(e);
         }
 
-        public Encuesta getEncuesta(int id)
+        public Encuesta getEncuesta2(int id)
         {
             foreach(Encuesta e in encuestas)
             {
                 if (e.Id.Equals(id))
+                {
+                    return e;
+                }
+            }
+            return null;
+        }
+
+        public Encuesta getEncuesta(string nombre)
+        {
+            foreach (Encuesta e in encuestas)
+            {
+                if (e.Nombre.Equals(nombre))
                 {
                     return e;
                 }

@@ -26,6 +26,9 @@
         .auto-style7 {
             width: 210px;
         }
+        .auto-style8 {
+            height: 26px;
+        }
     </style>
 </head>
 <body>
@@ -36,13 +39,13 @@
         </div>
         <br />
         <br />
-        Seleccione la encuesta:<asp:DropDownList ID="ListaEncuestaActivas" runat="server">
+        Seleccione la encuesta:<asp:DropDownList ID="ListaEncuestaActivas" runat="server" Height="16px" OnSelectedIndexChanged="ListaEncuestaActivas_SelectedIndexChanged" Width="558px">
         </asp:DropDownList>
         <br />
         <br />
         <table class="auto-style4">
             <tr>
-                <td colspan="5">
+                <td colspan="5" class="auto-style8">
                     <asp:Label ID="lblPregunta" runat="server" Text="Descripcion" Width="92%"></asp:Label>
                 </td>
             </tr>
@@ -55,17 +58,17 @@
                 <td class="auto-style2">
                     <br />
                     <br />
-                    <asp:ImageButton ID="Boton2" runat="server" Height="200px" ImageUrl="./Imagenes/2.png" Width="200px" ImageAlign="Middle" />
+                    <asp:ImageButton ID="Boton2" runat="server" Height="200px" ImageUrl="./Imagenes/2.png" Width="200px" ImageAlign="Middle" OnClick="Boton2_Click" />
                 </td>
                 <td class="auto-style3">
                     <br />
                     <br />
-                    <asp:ImageButton ID="Boton3" runat="server" Height="200px" ImageUrl="./Imagenes/3.png" Width="200px" ImageAlign="Middle" />
+                    <asp:ImageButton ID="Boton3" runat="server" Height="200px" ImageUrl="./Imagenes/3.png" Width="200px" ImageAlign="Middle" OnClick="Boton3_Click" />
                 </td>
                 <td class="auto-style7">
                     <br />
                     <br />
-                    <asp:ImageButton ID="Boton4" runat="server" Height="200px" ImageAlign="Middle" ImageUrl="./Imagenes/4N.png" Width="200px" />
+                    <asp:ImageButton ID="Boton4" runat="server" Height="200px" ImageAlign="Middle" ImageUrl="./Imagenes/4N.png" Width="200px" OnClick="Boton4_Click" />
                     <br />
                 </td>
                 <td>
@@ -84,14 +87,15 @@
             </tr>
             <tr>
                 <td class="auto-style6" colspan="5">
-                    <asp:TextBox ID="tdxcomentario" runat="server" TextMode="MultiLine" Width="92%"></asp:TextBox>
+                    <asp:TextBox ID="tdxcomentario" runat="server" TextMode="MultiLine" Width="92%" OnTextChanged="tdxcomentario_TextChanged"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style6" colspan="5">
+                    <asp:Label ID="lblError" runat="server"></asp:Label>
                     <br />
                     <br />
-                    <asp:Button ID="btnEnviar" runat="server" Text="Enviar" />
+                    <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
                 </td>
             </tr>
         </table>

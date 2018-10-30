@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace LibClases
 {
@@ -13,7 +14,15 @@ namespace LibClases
         {
             this.idUsuario = _idUsuario;
             this.cuenta = cuenta;
-            this.contrasena = _contrasena;
+            this.contrasena = Encriptar(_contrasena);
+        }
+
+        private string Encriptar(string password)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(password);
+            SHA256 mySHA256 = SHA256.Create();
+            bytes = mySHA256.ComputeHash(bytes);
+            return (System.Text.Encoding.ASCII.GetString(bytes));
         }
 
         private int idUsuario;
@@ -46,16 +55,30 @@ namespace LibClases
 
         public void asignarPass(string pass)
         {
-            this.contrasena = pass;
+            string cont = Encriptar(pass);
+            this.contrasena = cont;
         }
 
         public bool comprobarPass(string pass)
         {
-            if(contrasena == pass)
+            string con = Encriptar(pass);
+            return con.Equals(this.contrasena);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Usuario user = obj as Usuario;
+
+            if (this.idUsuario == user.idUsuario)
             {
                 return true;
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.idUsuario;
         }
     }
 }
