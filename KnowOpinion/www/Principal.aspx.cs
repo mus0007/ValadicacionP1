@@ -10,28 +10,33 @@ namespace www
 {
     public partial class Principal : System.Web.UI.Page
     {
-        List<ListItem> encuestasActivas = new List<ListItem>();
         DataBase db;
         Encuesta encuestaActiva;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Valoracion"] = null;
-            Session["Comentario"] = null;
-
             db = (DataBase)Session["db"];
-            if (db == null)
-            {
-                db = new DataBase();
-                Session["db"] = db;
-            }
 
-            foreach (Encuesta en in db.getActivas())
+            if (!IsPostBack)
             {
-                encuestasActivas.Add(new ListItem(en.Nombre,(en.Id).ToString()));
+                Session["Valoracion"] = null;
+                Session["Comentario"] = null;
+                Session["Encuesta"] = null;
+
+                db = (DataBase)Session["db"];
+                if (db == null)
+                {
+                    db = new DataBase();
+                    Session["db"] = db;
+                }
+
+                string encuestasActivas = "";
+                foreach (Encuesta en in db.getActivas())
+                {
+                    encuestasActivas += en.Nombre + " ";
+                }
+                lblListaEncuestas.Text = encuestasActivas;
             }
-            ListaEncuestaActivas.DataSource = encuestasActivas;
-            ListaEncuestaActivas.DataBind();
 
             encuestaActiva = (Encuesta)Session["Encuesta"];
             if (encuestaActiva != null)
@@ -72,10 +77,6 @@ namespace www
             Session["Valoracion"] = 4;
         }
 
-        protected void ListaEncuestaActivas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Session["Encuesta"] = db.getEncuesta(ListaEncuestaActivas.SelectedValue);
-        }
 
         protected void tdxcomentario_TextChanged(object sender, EventArgs e)
         {
@@ -89,12 +90,27 @@ namespace www
                 int valoracion = (int)Session["Valoracion"];
                 string comentario = (string)Session["Comentario"];
                 db.getEncuesta(encuestaActiva.Nombre).setOpinion(valoracion,comentario);
+                tdxcomentario.Text = "";
+                txtEncuestaSeleccionada.Text = "";
+                lblPregunta.Text = "";
                 lblError.Text = "";
+                Response.BufferOutput = true;
+                Response.Redirect("Principal.aspx");
             }
             else
             {
                 lblError.Text = "ERROR: NO SE HA SELECCIONADO LA ENCUESTA Y/O LA VALORACIÓN";
             }
+        }
+
+        protected void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            encuestaActiva = db.getEncuesta(txtEncuestaSeleccionada.Text);
+            if (encuestaActiva != null)
+            {
+                lblPregunta.Text = encuestaActiva.Descripcion;
+            }
+            Session["Encuesta"] = encuestaActiva;
         }
     }
 }

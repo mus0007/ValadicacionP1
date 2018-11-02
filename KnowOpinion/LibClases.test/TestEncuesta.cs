@@ -50,6 +50,17 @@ namespace LibClases.test
 
             Assert.AreEqual(eP.Activa, false);
 
+            //Prueba getOpiniones y setOpiniones
+            Assert.AreEqual(e1.getOpiniones().Count, 0);
+
+            e1.setOpinion(4, "Muy bien");
+
+            Assert.AreEqual(e1.getOpiniones().Count, 1);
+
+            e1.setOpinion(3);
+
+            Assert.AreEqual(e1.getOpiniones().Count, 2);
+
         }
 
     }

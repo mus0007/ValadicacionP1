@@ -12,11 +12,18 @@
         <div>
             <h1 style="text-align: center;">Activar/Desactivar encuesta</h1>
         </div>
-        Seleccione la encuesta:<asp:DropDownList ID="lisActvDesv" runat="server">
-        </asp:DropDownList>
+        Encuestas Activas:<asp:Label ID="lblListaEncuestas" runat="server"></asp:Label>
+        <br />
+        Encuestas No Activas:<asp:Label ID="lblListaEncuestasNA" runat="server"></asp:Label>
+        <br />
+        Escriba la encuesta que desee:<asp:TextBox ID="txtEncuestaSeleccionada" runat="server" MaxLength="15"></asp:TextBox>
+        <asp:Button ID="btnSeleccionar" runat="server" OnClick="btnSeleccionar_Click" Text="Seleccionar" />
+        &nbsp;(Realiza la operación contraria al valor que tenía)<br />
+        <br />
+                    <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="btnGuardar" runat="server" Height="10%" Text="Guardar" Width="10%" />
+        <asp:Button ID="btnGuardar" runat="server" Height="10%" Text="Activar/Desactivar" Width="10%" OnClick="btnGuardar_Click" />
     </form>
 </body>
 </html>

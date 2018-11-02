@@ -31,13 +31,31 @@ namespace www {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Control ListaEncuestaActivas.
+        /// Control lblListaEncuestas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListaEncuestaActivas;
+        protected global::System.Web.UI.WebControls.Label lblListaEncuestas;
+        
+        /// <summary>
+        /// Control txtEncuestaSeleccionada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEncuestaSeleccionada;
+        
+        /// <summary>
+        /// Control btnSeleccionar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSeleccionar;
         
         /// <summary>
         /// Control lblPregunta.

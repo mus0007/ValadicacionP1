@@ -22,17 +22,20 @@
                 <tr>
                     <td class="auto-style1">
                         <br />
-                        <br />
-                        Nombre de la encuesta:<br />
-                        <asp:TextBox ID="txtSugerirNombre" runat="server" MaxLength="15" Width="50%"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        Nombre de la encuesta:<br />
+                        <asp:TextBox ID="txtSugerirNombre" runat="server" MaxLength="100" Width="50%" OnTextChanged="txtSugerirNombre_TextChanged"></asp:TextBox>
                         <br />
                         <br />
                         Descripción de la encuesta:<br />
-                        <asp:TextBox ID="txtSugerirDescripcion" runat="server" MaxLength="100" Width="50%" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtSugerirDescripcion" runat="server" MaxLength="100" Width="50%" TextMode="MultiLine" OnTextChanged="txtSugerirDescripcion_TextChanged"></asp:TextBox>
+                        <br />
+                        <br />
+                        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+                        <br />
                     </td>
                 </tr>
                 <tr>

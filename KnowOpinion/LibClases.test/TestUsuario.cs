@@ -18,7 +18,7 @@ namespace LibClases.test
 
             Assert.AreEqual(u.Cuenta, "cuenta");
 
-            Assert.AreEqual(u.Contrasena, "pass");
+            Assert.AreEqual(u.comprobarPass("pass"), true);
 
             //Prueba Get incorrecto
 
@@ -28,20 +28,13 @@ namespace LibClases.test
 
             Assert.AreNotEqual(x.Cuenta, "cuenta");
 
-            Assert.AreNotEqual(x.Contrasena, "adios");
+            Assert.AreNotEqual(x.comprobarPass("adios"), true);
 
             //Prueba Set Correcto
 
             Assert.AreEqual(u.IdUsuario = 2, 2);
 
             Assert.AreEqual(u.Cuenta = "cuenta", "cuenta");
-
-            //Prueba Asignar Pass
-
-            u.asignarPass("hola");
-
-            Assert.AreEqual(u.comprobarPass("hola"), true);
-
         }
 
     }

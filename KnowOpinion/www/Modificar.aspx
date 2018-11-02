@@ -12,16 +12,21 @@
         <div>
             <h1 style="text-align: center;">Modificar Encuesta</h1>
         </div>
-        Seleccione la encuesta:<asp:DropDownList ID="lisModificar" runat="server">
-        </asp:DropDownList>
+        Encuestas Disponibles:<asp:Label ID="lblListaEncuestas" runat="server"></asp:Label>
+        <br />
+        Escriba la encuesta que desee:<asp:TextBox ID="txtEncuestaSeleccionada" runat="server" MaxLength="15"></asp:TextBox>
+        <asp:Button ID="btnSeleccionar" runat="server" OnClick="btnSeleccionar_Click" Text="Seleccionar" />
         <br />
         <br />
         Descripción de la encuesta:<br />
-        <asp:TextBox ID="txtModificarDescripcion" runat="server" MaxLength="100" TextMode="MultiLine" Width="50%"></asp:TextBox>
+        <asp:TextBox ID="txtModificarDescripcion" runat="server" MaxLength="100" TextMode="MultiLine" Width="50%" OnTextChanged="txtModificarDescripcion_TextChanged"></asp:TextBox>
+        <br />
+        <br />
+                    <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         <br />
         <br />
         <br />
-        <asp:Button ID="btnModificar" runat="server" Height="10%" Text="Modificar" Width="10%" />
+        <asp:Button ID="btnModificar" runat="server" Height="10%" Text="Modificar" Width="10%" OnClick="btnModificar_Click" />
     </form>
 </body>
 </html>

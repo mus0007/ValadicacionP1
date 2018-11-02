@@ -46,19 +46,6 @@ namespace LibClases
             set { this.cuenta = value; }
         }
 
-        private bool usuarioGrabado;
-        public bool UsuarioGrabado
-        {
-            get { return this.usuarioGrabado; }
-            set { this.usuarioGrabado = value; }
-        }
-
-        public void asignarPass(string pass)
-        {
-            string cont = Encriptar(pass);
-            this.contrasena = cont;
-        }
-
         public bool comprobarPass(string pass)
         {
             string con = Encriptar(pass);

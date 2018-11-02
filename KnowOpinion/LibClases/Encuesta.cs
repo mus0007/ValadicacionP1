@@ -52,9 +52,11 @@ namespace LibClases
         {
             return opiniones;
         }
-        public void setOpinion(int valor, string opinion )
+        public void setOpinion(int valor, string opinion = null )
         {
-            this.opiniones.Add(new Valoracion(valor, opinion));
+            if(valor != 0){
+                this.opiniones.Add(new Valoracion(valor, opinion));
+            }
         }
 
         public override bool Equals(object obj)

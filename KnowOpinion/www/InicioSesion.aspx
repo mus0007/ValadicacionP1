@@ -51,7 +51,7 @@
                 <td class="auto-style7">
                     <br />
                     <br />
-                    <asp:TextBox ID="txtcuenta" runat="server" TextMode="Email"></asp:TextBox>
+                    <asp:TextBox ID="txtcuenta" runat="server" TextMode="Email" OnTextChanged="txtcuenta_TextChanged"></asp:TextBox>
                 </td>
                 <td class="auto-style1">
                     &nbsp;</td>
@@ -59,7 +59,7 @@
             <tr>
                 <td class="auto-style4">Contraseña:</td>
                 <td class="auto-style8">
-                    <asp:TextBox ID="txtcontrena" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtcontrena" runat="server" TextMode="Password" OnTextChanged="txtcontrena_TextChanged"></asp:TextBox>
                 </td>
                 <td class="auto-style5">
                     &nbsp;</td>
@@ -67,6 +67,8 @@
             <tr>
                 <td class="auto-style4">
                     <div style="text-align: center;">
+                        <asp:Label ID="lblError1" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblError2" runat="server" ForeColor="Red"></asp:Label>
                         <br />
                     </div>
            

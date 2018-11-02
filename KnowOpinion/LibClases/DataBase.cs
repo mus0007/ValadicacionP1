@@ -20,12 +20,12 @@ namespace LibClases
 
         public DataBase()
         {
-            Usuario u1 = new Usuario(++nextUser, "Usuario1", "usuario1");
-            Usuario u2 = new Usuario(++nextUser, "Usuario2", "usuario2");
-            Usuario u3 = new Usuario(++nextUser, "Usuario3", "usuario3");
+            Usuario u1 = new Usuario(++nextUser, "Usuario1@gmail.com", "usuario1");
+            Usuario u2 = new Usuario(++nextUser, "Usuario2@gmail.com", "usuario2");
+            Usuario u3 = new Usuario(++nextUser, "Usuario3@gmail.com", "usuario3");
             
-            Encuesta e1 = new Encuesta(++nextPoll, "Encuesta"+(this.nextPoll).ToString(), "encuesta0descripcion", true);
-            Encuesta e2 = new Encuesta(++nextPoll, "Encuesta"+(this.nextPoll).ToString(), "encuesta1descripcion", true);
+            Encuesta e1 = new Encuesta(++nextPoll, "Encuesta"+(this.nextPoll).ToString(), "encuesta1descripcion", true);
+            Encuesta e2 = new Encuesta(++nextPoll, "Encuesta"+(this.nextPoll).ToString(), "encuesta2descripcion", true);
 
             usuarios.Add(u1);
             usuarios.Add(u2);
@@ -54,6 +54,19 @@ namespace LibClases
             return encuestasActivas;
         }
 
+        public List<Encuesta> getNoActivas()
+        {
+            List<Encuesta> encuestasNoActivas = new List<Encuesta>();
+            foreach (Encuesta e in encuestas)
+            {
+                if (!e.Activa)
+                {
+                    encuestasNoActivas.Add(e);
+                }
+            }
+            return encuestasNoActivas;
+        }
+
         public List<Usuario> getUsuarios()
         {
             return this.usuarios;
@@ -69,11 +82,11 @@ namespace LibClases
             return e.getOpiniones();
         }
 
-        public Usuario getUsuario(int id)
+        public Usuario getUsuario(string cuenta)
         {
             foreach(Usuario u in usuarios)
             {
-                if (u.IdUsuario.Equals(id))
+                if (u.Cuenta.Equals(cuenta))
                 {
                     return u;
                 }
@@ -83,20 +96,8 @@ namespace LibClases
 
         public void sugerirEncuesta(string nombre, string descripcion)
         {
-            Encuesta e = new Encuesta(nextPoll+1, nombre, descripcion);
+            Encuesta e = new Encuesta(++nextPoll, "Encuesta" + (this.nextPoll).ToString(), descripcion);
             sugerencias.Add(e);
-        }
-
-        public Encuesta getEncuesta2(int id)
-        {
-            foreach(Encuesta e in encuestas)
-            {
-                if (e.Id.Equals(id))
-                {
-                    return e;
-                }
-            }
-            return null;
         }
 
         public Encuesta getEncuesta(string nombre)
@@ -113,42 +114,43 @@ namespace LibClases
 
         public bool addEncuesta(string nombre, string descripcion, bool activa = false)
         {
-            int id = ++nextPoll;
-            Encuesta e = new Encuesta(id, nombre, descripcion, activa);
-            encuestas.Add(e);
-
-            foreach(Encuesta e1 in encuestas)
+            if (descripcion != null && nombre != null)
             {
-                if(e1.Id == id)
+                foreach(Encuesta ee in encuestas)
                 {
-                    return true;
+                    if(ee.Nombre == nombre)
+                    {
+                        return false;
+                    }
                 }
+                Encuesta e = new Encuesta(++nextPoll, nombre, descripcion, activa);
+                encuestas.Add(e);
+                return true;
             }
             return false;
+            
         }
 
-        public bool modificarEncuesta(int id, string nombre, string descripcion, bool activa = false)
+        public bool modificarEncuesta(string nombre, string descripcion)
         {
             foreach(Encuesta e in encuestas)
             {
-                if(e.Id == id)
+                if(e.Nombre == nombre)
                 {
                     e.Nombre = nombre;
                     e.Descripcion = descripcion;
-                    e.Activa = activa;
                     return true;
                 }
             }
             return false;
         }
 
-        //Preguntar al profesor si al borrar una encuesta los ids de las demas encuestas a partir de ella deberian bajar una unidad o no
-        public bool borrarEncuesta(int id)
+        public bool borrarEncuesta(string nombre)
         {
             Encuesta prueba = null;
             foreach (Encuesta e in encuestas)
             {
-                if (e.Id.Equals(id))
+                if (e.Nombre.Equals(nombre))
                 {
                     prueba = e;
                 }

@@ -39,14 +39,17 @@
         </div>
         <br />
         <br />
-        Seleccione la encuesta:<asp:DropDownList ID="ListaEncuestaActivas" runat="server" Height="16px" OnSelectedIndexChanged="ListaEncuestaActivas_SelectedIndexChanged" Width="558px">
-        </asp:DropDownList>
+        Encuestas disponibles:<asp:Label ID="lblListaEncuestas" runat="server"></asp:Label>
         <br />
+        <br />
+        Escriba la encuesta que desee:<asp:TextBox ID="txtEncuestaSeleccionada" runat="server" MaxLength="15"></asp:TextBox>
+        <asp:Button ID="btnSeleccionar" runat="server" OnClick="btnSeleccionar_Click" Text="Seleccionar" CausesValidation="False" />
+        &nbsp;<br />
         <br />
         <table class="auto-style4">
             <tr>
                 <td colspan="5" class="auto-style8">
-                    <asp:Label ID="lblPregunta" runat="server" Text="Descripcion" Width="92%"></asp:Label>
+                    <asp:Label ID="lblPregunta" runat="server" Text="Descripcion" Width="92%" EnableTheming="True"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -92,10 +95,10 @@
             </tr>
             <tr>
                 <td class="auto-style6" colspan="5">
-                    <asp:Label ID="lblError" runat="server"></asp:Label>
+                    <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
                     <br />
                     <br />
-                    <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
+                    <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" Height="29px" />
                 </td>
             </tr>
         </table>
