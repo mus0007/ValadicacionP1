@@ -35,7 +35,6 @@
                         <br />
                         <br />
                         <asp:Label ID="lblError1" runat="server" ForeColor="Red"></asp:Label>
-                        <asp:Label ID="lblError2" runat="server" ForeColor="Red"></asp:Label>
                     </td>
                 </tr>
                 <tr>

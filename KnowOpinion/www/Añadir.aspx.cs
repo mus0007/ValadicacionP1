@@ -42,7 +42,7 @@ namespace www
 
         protected void add(object sender, EventArgs e)
         {
-            if (Session["DesEncuesta"] != null && Session["NomEncuesta"] != null)
+            if (Session["NomEncuesta"] != null && Session["DesEncuesta"] != null)
             {
                 string nombre = (string)Session["NomEncuesta"];
                 string descripcion = (string)Session["DesEncuesta"];
@@ -55,12 +55,20 @@ namespace www
                     Response.Redirect("Añadir.aspx");
                 } else
                 {
+                    txtAñadirDescripcion.Text = "";
+                    txtAñadirNombre.Text = "";
+                    Session["NomEncuesta"] = null;
+                    Session["DesEncuesta"] = null;
                     lblError1.Text = "ERROR: LA INSERCCIÓN DE LA ENCUESTA FALLÓ";
                 } 
             }
             else
             {
-                lblError2.Text = "ERROR: NO SE HA ESCRITO EL NOMBRE Y/O LA DESCRIPCIÓN";
+                txtAñadirDescripcion.Text = "";
+                txtAñadirNombre.Text = "";
+                Session["NomEncuesta"] = null;
+                Session["DesEncuesta"] = null;
+                lblError1.Text = "ERROR: NO SE HA ESCRITO EL NOMBRE Y/O LA DESCRIPCIÓN";
             }
         }
     }
