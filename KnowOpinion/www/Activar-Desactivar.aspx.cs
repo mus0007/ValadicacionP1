@@ -15,33 +15,39 @@ namespace www
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DataBase)Session["db"];
-
-            if (!IsPostBack)
+            string usuario = (string)Session["CuentaUsuario"];
+            if (db.getUsuario(usuario) != null)
             {
-                Session["EncuestaActDes"] = null;
-
-                db = (DataBase)Session["db"];
-                if (db == null)
+                if (!IsPostBack)
                 {
-                    db = new DataBase();
-                    Session["db"] = db;
+                    Session["EncuestaActDes"] = null;
+
+                    db = (DataBase)Session["db"];
+                    if (db == null)
+                    {
+                        db = new DataBase();
+                        Session["db"] = db;
+                    }
                 }
-            }
 
-            string encuestasActivas = "";
-            foreach (Encuesta en in db.getActivas())
+                string encuestasActivas = "";
+                foreach (Encuesta en in db.getActivas())
+                {
+                    encuestasActivas += en.Nombre + " ";
+                }
+                lblListaEncuestas.Text = encuestasActivas;
+
+                string encuestasNoA = "";
+                foreach (Encuesta en in db.getNoActivas())
+                {
+                    encuestasNoA += en.Nombre + " ";
+                }
+                lblListaEncuestasNA.Text = encuestasNoA;
+            } else
             {
-                encuestasActivas += en.Nombre + " ";
+                Response.BufferOutput = true;
+                Response.Redirect("InicioSesion.aspx");
             }
-            lblListaEncuestas.Text = encuestasActivas;
-
-            string encuestasNoA = "";
-            foreach (Encuesta en in db.getNoActivas())
-            {
-                encuestasNoA += en.Nombre + " ";
-            }
-            lblListaEncuestasNA.Text = encuestasNoA;
-
         }
 
         protected void btnSeleccionar_Click(object sender, EventArgs e)

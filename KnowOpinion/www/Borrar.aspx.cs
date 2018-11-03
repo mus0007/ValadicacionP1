@@ -15,25 +15,32 @@ namespace www
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DataBase)Session["db"];
-
-            if (!IsPostBack)
+            string usuario = (string)Session["CuentaUsuario"];
+            if (db.getUsuario(usuario) != null)
             {
-                Session["EncuestaBorrar"] = null;
-
-                db = (DataBase)Session["db"];
-                if (db == null)
+                if (!IsPostBack)
                 {
-                    db = new DataBase();
-                    Session["db"] = db;
-                }
-            }
+                    Session["EncuestaBorrar"] = null;
 
-            string encuestas = "";
-            foreach (Encuesta en in db.getEncuestas())
+                    db = (DataBase)Session["db"];
+                    if (db == null)
+                    {
+                        db = new DataBase();
+                        Session["db"] = db;
+                    }
+                }
+
+                string encuestas = "";
+                foreach (Encuesta en in db.getEncuestas())
+                {
+                    encuestas += en.Nombre + " ";
+                }
+                lblListaEncuestas.Text = encuestas;
+            } else
             {
-                encuestas += en.Nombre + " ";
+                Response.BufferOutput = true;
+                Response.Redirect("InicioSesion.aspx");
             }
-            lblListaEncuestas.Text = encuestas;
         }
 
         protected void btnSeleccionar_Click(object sender, EventArgs e)

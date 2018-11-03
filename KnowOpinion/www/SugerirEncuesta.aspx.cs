@@ -15,11 +15,14 @@ namespace www
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DataBase)Session["db"];
+            Session["CuentaUsuario"] = null;
+            Session["PassUsuario"] = null;
 
             if (!IsPostBack)
             {
                 Session["DesEncuestaSugerida"] = null;
                 Session["NomEncuestaSugerida"] = null;
+                
 
                 db = (DataBase)Session["db"];
                 if (db == null)

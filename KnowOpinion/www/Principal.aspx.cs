@@ -17,11 +17,15 @@ namespace www
         {
             db = (DataBase)Session["db"];
 
+            Session["CuentaUsuario"] = null;
+            Session["PassUsuario"] = null;
+
             if (!IsPostBack)
             {
                 Session["Valoracion"] = null;
                 Session["Comentario"] = null;
                 Session["Encuesta"] = null;
+                
 
                 db = (DataBase)Session["db"];
                 if (db == null)

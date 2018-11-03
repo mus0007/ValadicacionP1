@@ -15,19 +15,25 @@ namespace www
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DataBase)Session["db"];
-
-            if (!IsPostBack)
-            {
-                Session["DesEncuesta"] = null;
-                Session["NomEncuesta"] = null;
-
-                db = (DataBase)Session["db"];
-                if (db == null)
+            string usuario = (string)Session["CuentaUsuario"];
+            if (db.getUsuario(usuario) != null) {
+                if (!IsPostBack)
                 {
-                    db = new DataBase();
-                    Session["db"] = db;
+                    Session["DesEncuesta"] = null;
+                    Session["NomEncuesta"] = null;
+
+                    db = (DataBase)Session["db"];
+                    if (db == null)
+                    {
+                        db = new DataBase();
+                        Session["db"] = db;
+                    }
                 }
-            }
+            } else
+            {
+                Response.BufferOutput = true;
+                Response.Redirect("InicioSesion.aspx");
+            }        
         }
 
         protected void txtAñadirDescripcion_TextChanged(object sender, EventArgs e)
