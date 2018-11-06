@@ -38,8 +38,9 @@ namespace LibClases.test
             Assert.AreEqual(db.getEncuesta("EncuestaPrueba").Nombre, "EncuestaPrueba");
             Assert.AreEqual(db.getEncuestas().Count, 3);
 
-            //Prueba getActivas
+            //Prueba getActivas y getNoActivas
             Assert.AreEqual(db.getActivas().Count, 2);
+            Assert.AreEqual(db.getNoActivas().Count, 1);
 
             //Prueba modificarEncuesta
             Assert.AreEqual(db.modificarEncuesta("EncuestaPrueba", "prueba"), true);
